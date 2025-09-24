@@ -1,0 +1,1 @@
+def greeting = "Hello, hotpages!"
