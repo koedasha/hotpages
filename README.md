@@ -62,7 +62,7 @@ Finally, generate the static site by running:
 bin/gen
 ```
 
-By default, the output is written to the `_site` directory in the current directory. Deploy those files to a CDN or other static host to serve the site.
+By default, the output is written to the `_site` directory in the current directory.
 
 ## Edit Web Pages
 
