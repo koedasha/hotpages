@@ -18,7 +18,7 @@ class TestHotReloading < Minitest::Test
     end
     @@setup_done = true
 
-    sleep 0.1
+    sleep 1
   end
 
   Minitest.after_run do
