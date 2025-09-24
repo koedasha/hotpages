@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+command, site_name = ARGV[0, 2]
+
+unless command == "new"
+  $stderr.puts "Error: command `#{command}` is not supported"
+  exit 1
+end
+
+FileUtils.mkdir(site_name)
+FileUtils.cp_r("#{__dir__}/../site_template/.", site_name)

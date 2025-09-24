@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "Static web site authoring with Ruby."
   spec.homepage = "https://github.com/koedasha/hotpages"
-  spec.license = "MIT"
+  spec.license = "0bsd"
   spec.required_ruby_version = ">= 3.4.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
