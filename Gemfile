@@ -2,16 +2,13 @@
 
 source "https://rubygems.org"
 
-# For hotpages development
-gem "erubi"
-gem "fast_gettext"
-gem "listen"
-gem "minitest"
-gem "rake"
-gem "rubocop-rails-omakase", require: false
-gem "tilt"
-gem "webrick"
-gem "zeitwerk"
+# Specify your gem's dependencies in gem_template.gemspec
+gemspec
 
-# For site development
-gem "kramdown"
+gem "irb"
+gem "rake", "~> 13.0"
+
+gem "kramdown", "~> 2.5"
+gem "minitest", "~> 5.16"
+
+gem "rubocop-rails-omakase"

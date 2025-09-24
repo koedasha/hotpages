@@ -10,9 +10,8 @@ class TestGeneration < Minitest::Test
       ]
       Hotpages.reload
       Hotpages.site.reload
-      Hotpages::SiteGenerator.new(site: Hotpages.site).generate
+      Hotpages.site_generator.generate
     end
-
     Process.wait(pid)
   end
 

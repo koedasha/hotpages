@@ -13,10 +13,15 @@ class TestServing < Minitest::Test
       trap("TERM") { server.stop }
       server.start
     end
-
-    # Generation process creates constants under Pages namespace, so do this after server process is forked.
-    # This ensures that constants are properly initialized only within the DevServer process.
-    Hotpages.site_generator.generate
+    gen_pid = fork do
+      Hotpages.extensions += [
+        Hotpages::Extensions::AssetCacheBusting
+      ]
+      Hotpages.reload
+      Hotpages.site.reload
+      Hotpages.site_generator.generate
+    end
+    Process.wait(gen_pid)
 
     @@setup_done = true
 

@@ -1,6 +1,9 @@
-require "bundler/setup"
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+require "hotpages"
+
 require "minitest/autorun"
-require "#{__dir__}/../lib/hotpages"
 
 class TestSite < Hotpages::Site
   config.site.root = Pathname.new(__dir__).join("test_site")
