@@ -1,6 +1,6 @@
 # Hotpages
 
-__Hotpages is in alpha. It likely has many bugs, but if you're interested, please try it and leave [feedback](https://github.com/koedasha/hotpages/issues/new).__
+__Hotpages is in alpha. It likely has many bugs, but if you're interested, please give it a try. [Send feedback here](https://github.com/koedasha/hotpages/issues/new)__
 
 Static web site authoring with Ruby.
 
@@ -90,9 +90,19 @@ If you define a `body` method in the Ruby file, its return value is evaluated as
 
 If you want a shared Ruby file within a directory, place `_page.rb` in that directory. Its contents are applied to all templates in that directory.
 
-#### Partial rendering
+### Ignored files under `pages`
 
-You can render partials while passing local variables using the `render` method, for example `render "shared/post", post: post`. You can place partials under the `pages` directory and reference them by relative path from page files.
+Files placed under `pages` whose names start with an underscore (`_`) are ignored and not compiled into web pages.
+
+### Path expansion
+
+Directories and page files whose names start with a colon, such as `:slug.html.erb`, are treated as expandable paths. The expansion names are taken from the return value of the `self.segment_names` method defined in a Ruby file with the same basename (without the extension) in the same directory, such as `:slug.rb`. For example, if `self.segment_names` in `:slug.rb` returns an array like `["one", "two"]`, then `:slug.html.erb` will generate two HTML files: `one.html` and `two.html`.
+
+In this case, the expanded segment string, such as `one` or `two`, is stored in the `segments` hash within the page file. If the page filename is `:slug.html.erb`, you can access it as `segments[:slug]`.
+
+## Partial rendering
+
+Use the `render` method to render partials while passing local variables, for example `render "shared/post", post: post`. You can place partials under the `pages` directory and specify the partial file from a page using a relative path. In this case, the partial filename must begin with an underscore (`_`); see Ignored files under `pages`.
 
 ## Directory Overview
 
