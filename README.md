@@ -66,7 +66,7 @@ By default, the output is written to the `_site` directory in the current direct
 
 ## Edit Web Pages
 
-Continuing from “Get Started,” open `pages/index.html.erb` in your editor. You should see `<%= greeting %>` in the file. `greeting` is a simple Ruby method defined in `pages/index.rb`.
+Continuing from “Get Started,” open `pages/index.html.erb` under `site` directory in your editor. You should see `<%= greeting %>` in the file. `greeting` is a simple Ruby method defined in `pages/index.rb`.
 
 Try changing the return value of the `greeting` method in `pages/index.rb`. Thanks to the hot reloading freature of development server, the text shown in your browser should update immediately.
 
@@ -104,7 +104,7 @@ In this case, the expanded segment string, such as `one` or `two`, is stored in 
 
 Use the `render` method to render partials while passing local variables, for example `render "shared/post", post: post`. You can place partials under the `pages` directory and specify the partial file from a page using a relative path. In this case, the partial filename must begin with an underscore (`_`); see Ignored files under `pages`.
 
-## Directory Overview
+## Directories in `site` Overview
 
 - `pages`
   - The most important directory. Place the page files described above.
