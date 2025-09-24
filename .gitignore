@@ -7,6 +7,4 @@
 /spec/reports/
 /tmp/
 
-# Hotpages dists
-/_site
 /test/dist/actual
