@@ -6,7 +6,7 @@ class TestHotReloading < Minitest::Test
   def setup
     return if @@setup_done
 
-    @@port = 12346
+    @@port = 23456
     @@server_pid = fork do
       Hotpages.extensions << Hotpages::Extensions::HotReloading
       Hotpages.reload
