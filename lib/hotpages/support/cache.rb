@@ -12,11 +12,12 @@ module Hotpages::Support::Cache
   end
 
   class Store < Hash
-    def fetch(cache_key, version:)
+    def fetch(cache_key, version:, &block)
       self[cache_key]&.content_of(version) ||
-        yield.tap do |content|
-          self[cache_key] = Entry.new(version:, content:)
-        end
+        block &&
+          yield.tap do |content|
+            self[cache_key] = Entry.new(version:, content:)
+          end
     end
   end
 end
