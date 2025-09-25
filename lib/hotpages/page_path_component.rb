@@ -26,7 +26,8 @@ class Hotpages::PagePathComponent
       prefix + path.to_s.delete_prefix(site.pages_path.to_s + "/").classify.gsub("::", "_").gsub(":", "_")
     end
 
-    def new_subclass(name, ruby_file:, version:)
+    def new_subclass(name, ruby_file:)
+      version = ruby_file ? File.mtime(ruby_file) : nil
       site.cache.fetch(name, version:) do
         klass = Class.new(self).tap do
           it.class_eval(File.read(ruby_file)) if ruby_file

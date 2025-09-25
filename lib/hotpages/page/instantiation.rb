@@ -21,16 +21,16 @@ module Hotpages::Page::Instantiation
     page_ruby = "#{page_path}.rb"
     generic_page_ruby = "#{File.dirname(page_path)}/_page.rb"
 
-    ruby_mtime, ruby_file = if File.file?(page_ruby)
-      [ File.mtime(page_ruby), page_ruby ]
+    ruby_file = if File.file?(page_ruby)
+      page_ruby
     elsif File.file?(generic_page_ruby)
-      [ File.mtime(generic_page_ruby), generic_page_ruby ]
+      generic_page_ruby
     else
-      [ nil, nil ]
+      nil
     end
 
     class_name = class_name_for(page_path, prefix: "Page_")
-    new_subclass(class_name, ruby_file:, version: ruby_mtime)
+    new_subclass(class_name, ruby_file:)
   end
 
   private
