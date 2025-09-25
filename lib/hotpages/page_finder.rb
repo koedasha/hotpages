@@ -25,8 +25,8 @@ class Hotpages::PageFinder
 
     template_file_ext = page_path.dirname.children.find do
       !it.directory? &&
-        it.to_s.start_with?(page_path.to_s) &&
-        !it.to_s.end_with?(".rb")
+        !it.to_s.end_with?(".rb") &&
+        it.basename.to_s.split(".").first == page_path.basename.to_s
     end.then do
       break nil unless it
       it.basename.to_s.split(".")[1..].join(".")
