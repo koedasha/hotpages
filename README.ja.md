@@ -13,6 +13,7 @@ HotpagesはRubyを使った静的サイトジェネレーターのひとつで�
 - ERBを第一のテンプレート言語とし、[Tilt](https://github.com/jeremyevans/tilt)により多数のテンプレートを利用可能
 - [Hotwire](https://hotwired.dev)(Turbo, Stimulus)のデフォルトサポート
 - ホットリロードを備えた開発用サーバで快適なWebサイトオーサリング
+- 他に、i18n、アセットキャッシュの無効化、サイト内リンク切れ検出、テンプレートパス注釈、インラインSVGなど、静的サイト構築に便利な機能を標準で組み込み
 
 ## インストール
 
@@ -139,6 +140,10 @@ require "kramdown"
 こうすることで `pages/index.html.md` のようなテンプレートファイルやパーシャルを扱うことが可能となります（テンプレートファイルの拡張子の最上位はコンパイル先のファイルフォーマットを表す必要があります）。
 
 Tiltでサポートされるテンプレートファイルは多いため全てテストできていません。もし利用中のテンプレートで不具合があれば[フィードバック](https://github.com/koedasha/hotpages/issues/new)をお願いします。
+
+## Hotpagesで構築されたウェブサイト
+
+- [こえだ舎ウェブサイト](https://koeda.jp)
 
 ## Development
 

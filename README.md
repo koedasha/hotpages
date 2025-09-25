@@ -13,6 +13,7 @@ Hotpages is a static site generator that uses Ruby. It is especially recommended
 - ERB as the primary template language, with many others available via [Tilt](https://github.com/jeremyevans/tilt)
 - Default support for [Hotwire](https://hotwired.dev) (Turbo, Stimulus)
 - Comfortable authoring with a development server that supports hot reloading
+- Additionally, features such as i18n, asset cache invalidation, detection of broken internal links, template path annotations, and inline SVG are built-in as standard for convenient static site building.
 
 ## Installation
 
@@ -139,6 +140,10 @@ require "kramdown"
 This enables handling template files and partials like `pages/index.html.md` (the topmost extension of the template file must indicate the output file format).
 
 There are many template engines supported by Tilt, so not all have been tested. If you encounter issues with a template you use, please send [feedback](https://github.com/koedasha/hotpages/issues/new).
+
+## Websites Built with Hotpages
+
+- [Koeda-sha's Website](https://koeda.jp)
 
 ## Development
 
