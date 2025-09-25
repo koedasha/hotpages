@@ -1,6 +1,6 @@
 # Hotpages
 
-__Hotpagesはアルファ版です。多数のバグがあると思いますが興味のある方は是非使ってみてください。[フィードバックはこちらまで](https://github.com/koedasha/hotpages/issues/new)__
+__Hotpagesは現在プレリリースです。多数のバグがあると思いますが興味のある方は是非使ってみてください。[フィードバックはこちらまで](https://github.com/koedasha/hotpages/issues/new)__
 
 静的サイトをRubyで書くためのRubygem
 

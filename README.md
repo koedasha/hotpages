@@ -1,6 +1,6 @@
 # Hotpages
 
-__Hotpages is in alpha. It likely has many bugs, but if you're interested, please give it a try. [Send feedback here](https://github.com/koedasha/hotpages/issues/new)__
+__Hotpages is currently in pre-release. It likely has many bugs, but if you're interested, please give it a try. [Send feedback here](https://github.com/koedasha/hotpages/issues/new)__
 
 Static web site authoring with Ruby.
 
