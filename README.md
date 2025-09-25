@@ -145,6 +145,8 @@ There are many template engines supported by Tilt, so not all have been tested. 
 
 - [Koeda-sha's Website](https://koeda.jp)
 
+    Hotpages was extracted from this site.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
