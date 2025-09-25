@@ -14,6 +14,7 @@ class Hotpages::Directory < Hotpages::PagePathComponent
       end
 
       class_name = class_name_for(directory_path, prefix: "Directory_")
+      # TODO: check mtime in new_subclass meth
       new_subclass(class_name, ruby_file:, version: ruby_mtime)
     end
   end
