@@ -157,7 +157,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/koedas
 
 ## License
 
-The gem is available as open source under the terms of the [Zero-Clause BSD](https://opensource.org/license/0bsd).
+The gem is available as open source under the terms of the [ISC License](https://opensource.org/license/isc).
 
 ## Code of Conduct
 
