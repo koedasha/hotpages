@@ -15,9 +15,9 @@ module Hotpages::Support::Cache
     def fetch(cache_key, version:, &block)
       self[cache_key]&.content_of(version) ||
         block &&
-          yield.tap do |content|
-            self[cache_key] = Entry.new(version:, content:)
-          end
+        yield.tap do |content|
+          self[cache_key] = Entry.new(version:, content:)
+        end
     end
   end
 end
