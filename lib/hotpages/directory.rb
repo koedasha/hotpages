@@ -7,15 +7,14 @@ class Hotpages::Directory < Hotpages::PagePathComponent
       return nil unless File.directory?(directory_path)
 
       directory_ruby = "#{directory_path}.rb"
-      ruby_mtime, ruby_file = if File.file?(directory_ruby)
-        [ File.mtime(directory_ruby), directory_ruby ]
+      ruby_file = if File.file?(directory_ruby)
+        directory_ruby
       else
-        [ nil, nil ]
+        nil
       end
 
       class_name = class_name_for(directory_path, prefix: "Directory_")
-      # TODO: check mtime in new_subclass meth
-      new_subclass(class_name, ruby_file:, version: ruby_mtime)
+      new_subclass(class_name, ruby_file:)
     end
   end
 end
