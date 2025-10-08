@@ -160,15 +160,15 @@ module Hotpages::Extensions::I18n
 
     private
 
-    def localized_current_path(locale)
+    def localized_current_path(locale, suffix: "?locale_selected=1")
       base_path = expanded_base_path(locale: nil)
       base_path.delete_suffix!("index")
 
       # TODO: better handling of base paths
       if site.default_locale?(locale)
-        "/#{base_path}"
+        "/#{base_path}#{suffix}"
       else
-        "/#{locale}/#{base_path}"
+        "/#{locale}/#{base_path}#{suffix}"
       end
     end
   end
