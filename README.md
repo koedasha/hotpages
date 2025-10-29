@@ -71,6 +71,8 @@ bin/dev
 
 Open `http://localhost:4000` in your browser. If you see `Hello, hotpages!`, you’re all set!
 
+Stop the development server with `C-c`.
+
 Finally, generate the static site by running:
 
 ```bash
