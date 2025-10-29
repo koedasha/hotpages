@@ -1,6 +1,12 @@
 # Hotpages
 
-__Hotpagesは現在プレリリースです。多数のバグがあると思いますが興味のある方は是非使ってみてください。[フィードバックはこちらまで](https://github.com/koedasha/hotpages/issues/new)__
+__Hotpagesは現在プレリリースです。多数のバグがあると思いますが興味のある方は使ってみてください。[フィードバックはこちらまで](https://github.com/koedasha/hotpages/issues/new)__
+
+<div align="center">
+
+  **[ [English](./README.md) ]**
+
+</div>
 
 静的サイトをRubyで書くためのRubygem
 
@@ -8,12 +14,20 @@ HotpagesはRubyを使った静的サイトジェネレーターのひとつで�
 
 ## 特徴
 
-- ディレクトリベースのルーティング
+- ファイルベースのルーティング。pagesディレクトリの下のファイル配置がそのままウェブサイトとして出力されます。
 - RailsのActionViewに似たヘルパー関数
 - ERBを第一のテンプレート言語とし、[Tilt](https://github.com/jeremyevans/tilt)により多数のテンプレートを利用可能
 - [Hotwire](https://hotwired.dev)(Turbo, Stimulus)のデフォルトサポート
 - ホットリロードを備えた開発用サーバで快適なWebサイトオーサリング
 - 他に、i18n、アセットキャッシュの無効化、サイト内リンク切れ検出、テンプレートパス注釈、インラインSVGなど、静的サイト構築に便利な機能を標準で組み込み
+
+## バージョン1.0.0リリースまでのロードマップ（予定）
+
+- [x] 基本機能
+- [ ] 基本機能のブラッシュアップ
+- [ ] ユニットテストの充実
+- [ ] ドキュメント、RBSの整備
+- [ ] モデルユーティリティクラスの追加。Markdownファイルを扱うクラスの追加を予定
 
 ## インストール
 

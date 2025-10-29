@@ -1,19 +1,33 @@
 # Hotpages
 
-__Hotpages is currently in pre-release. It likely has many bugs, but if you're interested, please give it a try. [Send feedback here](https://github.com/koedasha/hotpages/issues/new)__
+__Hotpages is currently in pre-release. There are likely many bugs, but please try it if you're interested. [Feedback welcome here](https://github.com/koedasha/hotpages/issues/new)__
 
-Static web site authoring with Ruby.
+<div align="center">
 
-Hotpages is a static site generator that uses Ruby. It is especially recommended if you hand-write HTML while building your site and want to keep your HTML DRY (Don't Repeat Yourself) using Ruby.
+  **[ [日本語](./README.ja.md) ]**
+
+</div>
+
+Static website authoring with Ruby.
+
+Hotpages is a static site generator using Ruby. It's especially recommended when you want to create sites by hand-coding HTML while using Ruby to keep your HTML DRY (Don't Repeat Yourself).
 
 ## Features
 
-- Directory-based routing
-- Helper functions similar to Rails’ ActionView
-- ERB as the primary template language, with many others available via [Tilt](https://github.com/jeremyevans/tilt)
+- File-based routing. The file structure under the `pages` directory is directly output as the website structure.
+- Helper functions similar to Rails ActionView
+- ERB as the primary template language, with support for many templates via [Tilt](https://github.com/jeremyevans/tilt)
 - Default support for [Hotwire](https://hotwired.dev) (Turbo, Stimulus)
-- Comfortable authoring with a development server that supports hot reloading
-- Additionally, features such as i18n, asset cache invalidation, detection of broken internal links, template path annotations, and inline SVG are built-in as standard for convenient static site building.
+- Comfortable website authoring with a development server featuring hot reload
+- Built-in features useful for static site building, including i18n, asset cache busting, broken internal link detection, template path annotations, and inline SVG
+
+## Roadmap to Version 1.0.0 Release (Planned)
+
+- [x] Core functionality
+- [ ] Polish core functionality
+- [ ] Expand unit tests
+- [ ] Documentation and RBS preparation
+- [ ] Add model utility classes. Planning to add classes for handling Markdown files
 
 ## Installation
 
