@@ -28,7 +28,7 @@ class Hotpages::PagePathComponent
 
     def new_subclass(name, ruby_file:)
       version = ruby_file ? File.mtime(ruby_file) : nil
-      site.cache.fetch(name, version:) do
+      site.cache.fetch(name, namespace: "page_path_component_class_name", version:) do
         klass = Class.new(self).tap do
           it.class_eval(File.read(ruby_file)) if ruby_file
         end

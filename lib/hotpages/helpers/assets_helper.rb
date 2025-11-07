@@ -13,7 +13,7 @@ module Hotpages::Helpers::AssetsHelper
 
   def inline_svg_tag(svg_path, **options)
     svg_asset = Hotpages::Asset.new(svg_path)
-    svg = site.cache.fetch(svg_path, version: svg_asset.mtime) do
+    svg = site.cache.fetch(svg_path, namespace: "svg_path", version: svg_asset.mtime) do
       doc = REXML::Document.new(svg_asset.read_file)
       REXML::XPath.first(doc, "//svg")
     end
