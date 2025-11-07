@@ -9,6 +9,7 @@ class Hotpages::Site
   using Hotpages::Support::StringInflections
 
   class << self
+    #: (Class) -> Pathname
     def inherited(subclass)
       Hotpages::Extension.setup(
         extensions: Hotpages.extensions,
@@ -23,12 +24,14 @@ class Hotpages::Site
       config.site.root = Pathname.new(base_class_location).join("../site")
     end
 
+    #: () -> Hotpages::Config
     def config = @config ||= Hotpages.config
   end
 
   attr_reader :config
   define_hook :initialize, only: :after
 
+  #: () -> void
   def initialize
     run_hooks :initialize do
       @config = self.class.config
@@ -42,6 +45,7 @@ class Hotpages::Site
     end
   end
 
+  #: () -> bool
   def setup
     loader.setup
   end
@@ -65,6 +69,7 @@ class Hotpages::Site
     class_name.constantize
   end
 
+  #: () -> Array[untyped]
   def assets_paths = @assets_paths ||= [ assets_path ]
   def assets(filter_ext = nil)
     Enumerator.new do |yielder|
@@ -89,17 +94,23 @@ class Hotpages::Site
 
     delegate %i[ root directory ] => :site_config
 
+    #: () -> Pathname
     def dist_path = root.join(site_config.dist_path)
 
     def pages_path = root.join(directory.pages)
+    #: () -> Pathname
     def models_path = root.join(directory.models)
     def layouts_path = root.join(directory.layouts)
+    #: () -> Pathname
     def helpers_path = root.join(directory.helpers)
+    #: () -> Pathname
     def assets_path = root.join(directory.assets)
+    #: () -> Pathname
     def shared_path = root.join(directory.shared)
 
     private
 
+    #: () -> Hotpages::Config
     def site_config = config.site
   end
   include Paths

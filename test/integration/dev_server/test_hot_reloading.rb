@@ -3,6 +3,7 @@ require "net/http"
 
 class TestHotReloading < Minitest::Test
   @@setup_done = false
+  #: () -> Integer
   def setup
     return if @@setup_done
 
@@ -28,6 +29,7 @@ class TestHotReloading < Minitest::Test
     end
   end
 
+  #: () -> nil
   def test_sse_broadcasting
     client_socket = TCPSocket.new("localhost", @@port)
 

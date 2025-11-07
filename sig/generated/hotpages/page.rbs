@@ -1,0 +1,43 @@
+# Generated from lib/hotpages/page.rb with RBS::Inline
+
+class Hotpages::Page < Hotpages::PagePathComponent
+  include Hotpages::Support::Hooks
+
+  include Hotpages::Helpers
+
+  # : (Class) -> void
+  def self.inherited: (Class) -> void
+
+  # : (String) -> String
+  def self.layout: (String) -> String
+
+  attr_accessor layout_path: String
+
+  # : () -> void
+  def self.include_all_site_helpers: () -> void
+
+  attr_reader base_path: String?
+
+  attr_reader segments: String?
+
+  attr_reader name: String?
+
+  attr_reader site: String?
+
+  attr_reader config: String?
+
+  attr_reader template_file_ext: String?
+
+  attr_reader layout_path: String?
+
+  def initialize: (base_path: untyped, ?segments: untyped, ?name: untyped, ?template_file_ext: untyped, ?layout: untyped) -> untyped
+
+  # : (String) -> void
+  def layout: (String) -> void
+
+  # : () -> String
+  def body: () -> String
+
+  # : () -> String
+  def body_type: () -> String
+end

@@ -3,6 +3,7 @@ require "test_helper"
 class TestConfig < Minitest::Test
   Config = Hotpages::Config
 
+  #: () -> Hotpages::Config
   def setup
     @defaults = {
       foo: "foo",
@@ -14,6 +15,7 @@ class TestConfig < Minitest::Test
     @config = Hotpages::Config.new(@defaults)
   end
 
+  #: () -> bool
   def test_singleton_methods
     assert_respond_to @config, :foo
     assert_equal "foo", @config.foo

@@ -12,6 +12,7 @@ module Hotpages::Support::Cache
   end
 
   class Store < Hash
+    #: (String, version: Integer) -> String?
     def fetch(cache_key, version:, &block)
       self[cache_key]&.content_of(version) ||
         block &&

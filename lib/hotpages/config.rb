@@ -1,5 +1,6 @@
 class Hotpages::Config
   class << self
+    #: () -> Hotpages::Config
     def defaults
       new(
         assets: new(
@@ -30,8 +31,10 @@ class Hotpages::Config
     end
   end
 
+  #: (?Hash[untyped, untyped]) -> void
   def initialize(defaults = {}) = add(**defaults)
 
+  #: (**String | (String | Hotpages::Config)? | Integer | String | Hotpages::Config | Hash[untyped, untyped] | Array[untyped] | Array[untyped] | String | Symbol | Hotpages::Config | String | Hash[untyped, untyped] | Hotpages::Config) -> Hotpages::Config
   def add(**configs)
     configs.each do |key, value|
       define_attribute(key, value)
@@ -58,6 +61,7 @@ class Hotpages::Config
 
   private
 
+  #: (Symbol, (String | Hotpages::Config | Integer | Hash[untyped, untyped] | Array[untyped] | Symbol)?) -> Symbol
   def define_attribute(name, value)
     # Do not re-define
     return if respond_to?(name)

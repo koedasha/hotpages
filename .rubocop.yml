@@ -1,3 +1,9 @@
 # Omakase Ruby styling for Rails
 inherit_gem:
   rubocop-rails-omakase: rubocop.yml
+
+Style/LeadingCommentSpace:
+  AllowGemfileRubyComment: true
+  AllowRBSInlineAnnotation: true
+  Exclude:
+    - '**/*.rbs'

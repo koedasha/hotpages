@@ -36,14 +36,17 @@ module Hotpages
     # To add/remove extensions, modify this array before calling Extension.setup
     # Extensions order is important, because initialization is performed in the order defined
     # and this affects prepended/included modules' order.
+    #: () -> Array[untyped]
     def extensions = @extensions ||= DEFAULT_EXTENSIONS
     def extensions=(extensions)
       @extensions = extensions
     end
 
+    #: () -> Hotpages::Config
     def config = @config ||= Config.defaults
 
     attr_accessor :site_class
+    #: () -> TestSite
     def site = @site ||= site_class.instance.tap(&:setup)
 
     def site_generator = @site_generator ||= SiteGenerator.new(site:)

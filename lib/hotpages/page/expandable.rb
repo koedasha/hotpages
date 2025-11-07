@@ -4,6 +4,7 @@ module Hotpages::Page::Expandable
   EXPANDABLE_PATH_COMPONENT_REGEXP = Hotpages::Page::EXPANDABLE_NAME_REGEXP
 
   class << self
+    #: (Class) -> Class
     def included(base)
       base.extend(ClassMethods)
     end
