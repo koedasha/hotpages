@@ -59,8 +59,8 @@ module Hotpages::Support::Hooks
       callable_hook_content(hook_content).call
     end
 
-    # Around hooks are called in reverse order of their definition (from the last defined to the first).
-    around_hooks = self.class.hooks[Type.around.key(hook_name)].map do |hook_content|
+    # call .reverse to execute in the order they were defined
+    around_hooks = self.class.hooks[Type.around.key(hook_name)].reverse.map do |hook_content|
       callable_hook_content(hook_content)
     end
     result = nil
