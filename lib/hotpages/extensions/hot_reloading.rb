@@ -83,10 +83,10 @@ module Hotpages::Extensions::HotReloading
       res.chunked = true
       res.keep_alive = true
 
-      FileChangeStream.new.tap do |stream|
-        file_change_streams << stream
-        res.body = stream
-      end
+      stream = FileChangeStream.new
+
+      file_change_streams << stream
+      res.body = stream
     end
   end
 
