@@ -11,4 +11,6 @@ gem "kramdown", "~> 2.5"
 gem "minitest", "~> 5.16"
 
 gem "rbs-inline", require: false
+gem "sorbet", require: false
+gem "sorbet-runtime"
 gem "rubocop-rails-omakase"
