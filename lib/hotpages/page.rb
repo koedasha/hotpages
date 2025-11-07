@@ -1,5 +1,3 @@
-# rbs_inline: enabled
-
 require "forwardable"
 
 class Hotpages::Page < Hotpages::PagePathComponent

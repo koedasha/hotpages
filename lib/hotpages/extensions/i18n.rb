@@ -26,6 +26,7 @@ module Hotpages::Extensions::I18n
     GETTEXT_DOMAIN = "hotpages_site"
     Gettext = FastGettext
 
+    #: () -> String
     def setup
       super
       Gettext.add_text_domain(
@@ -45,6 +46,7 @@ module Hotpages::Extensions::I18n
 
     def locales = i18n_config.locales
     def default_locale = i18n_config.default_locale
+    #: () -> Pathname
     def locales_path = root.join(i18n_config.locales_directory)
     def default_locale?(locale) = default_locale.to_s == locale.to_s
     def locales_without_default = locales.reject { default_locale?(it) }
@@ -60,6 +62,7 @@ module Hotpages::Extensions::I18n
 
     private
 
+    #: () -> Hotpages::Config
     def i18n_config = config.site.i18n
   end
 

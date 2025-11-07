@@ -2,6 +2,11 @@
 
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 require "hotpages"
+require "rbs"
+require "rbs/trace"
+
+trace = RBS::Trace.new
+trace.enable
 
 # Fix the last modified date of the page to prevent failures
 # during tests due to changes in CI, etc.
@@ -23,4 +28,9 @@ end
 
 Minitest.after_run do
   Hotpages.teardown
+end
+
+Minitest.after_run do
+  trace.disable
+  trace.save_comments
 end

@@ -13,12 +13,14 @@ module Hotpages::Support::Hooks
   private_constant :Type
 
   class << self
+    #: (Class) -> Class
     def included(base)
       base.extend(ClassMethods)
     end
   end
 
   module ClassMethods
+    #: (Class) -> Hash[untyped, untyped]
     def inherited(subclass)
       super
 
@@ -28,9 +30,11 @@ module Hotpages::Support::Hooks
       end
     end
 
+    #: () -> Hash[untyped, untyped]
     def hooks = @hooks ||= {}
     attr_writer :hooks
 
+    #: (Symbol, ?only: nil) -> Array[untyped]
     def define_hook(hook_name, only: nil)
       Type.all.each do |type|
         registered_name = type.key(hook_name)
@@ -50,6 +54,7 @@ module Hotpages::Support::Hooks
     end
   end
 
+  #: (Symbol) -> Zeitwerk::Loader
   def run_hooks(hook_name, &block)
     unless self.class.hooks[Type.before.key(hook_name)]
       raise "Hooks for `#{hook_name}` is not registered."
@@ -91,6 +96,7 @@ module Hotpages::Support::Hooks
 
   private
 
+  #: (Proc) -> Proc
   def callable_hook_content(hook_content)
     case hook_content
     when Symbol
