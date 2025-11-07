@@ -1,3 +1,5 @@
+# rbs_inline: enabled
+
 require "forwardable"
 
 class Hotpages::Page < Hotpages::PagePathComponent
@@ -7,16 +9,19 @@ class Hotpages::Page < Hotpages::PagePathComponent
   include Hotpages::Helpers
 
   class << self
+    #: (Class) -> void
     def inherited(subclass)
       super
       subclass.layout_path = self.layout_path.dup if self.layout_path
     end
 
+    #: (String) -> String
     def layout(layout_path)
       @layout_path = layout_path
     end
-    attr_accessor :layout_path
+    attr_accessor :layout_path #: String
 
+    #: () -> void
     def include_all_site_helpers
       site.helper_constants.each do |helper_module|
         next if included_modules.include?(helper_module)
@@ -29,7 +34,13 @@ class Hotpages::Page < Hotpages::PagePathComponent
 
   layout :site # Default layout path, can be overridden by individual pages
 
-  attr_reader :base_path, :segments, :name, :site, :config, :template_file_ext, :layout_path
+  attr_reader :base_path, #: String
+              :segments, #: Hash[Symbol, String]
+              :name, #: String?
+              :site, #: Hotpages::Site
+              :config, #: Hash[Symbol, untyped]
+              :template_file_ext, #: String?
+              :layout_path #: String?
 
   def initialize(base_path:, segments: {}, name: nil, template_file_ext: nil, layout: nil)
     @base_path = base_path
@@ -44,13 +55,16 @@ class Hotpages::Page < Hotpages::PagePathComponent
     self.class.include_all_site_helpers
   end
 
+  #: (String) -> void
   def layout(layout_path)
     @layout_path = layout_path
   end
 
+  #: () -> String
   def body
     raise "No template file is found at #{self.class.name} at `/#{site.directory.pages}/#{[ base_path, template_file_ext ].compact.join(".")}`, "\
           "please provide body method or template file."
   end
+  #: () -> String
   def body_type = "html.erb"
 end
