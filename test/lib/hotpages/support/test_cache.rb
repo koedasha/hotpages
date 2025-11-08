@@ -6,7 +6,6 @@ class TestCache < Minitest::Test
   Entry = Hotpages::Support::Cache::Entry
   Store = Hotpages::Support::Cache::Store
 
-  #: () -> bool
   def test_entry_content_of_with_newer_version
     entry = Entry.new(version: 2, content: "cached content")
 
@@ -14,14 +13,12 @@ class TestCache < Minitest::Test
     assert_equal "cached content", entry.content_of(2)
   end
 
-  #: () -> bool
   def test_entry_content_of_with_older_version
     entry = Entry.new(version: 1, content: "cached content")
 
     assert_nil entry.content_of(2)
   end
 
-  #: () -> bool
   def test_entry_content_of_with_nil_version
     entry = Entry.new(version: nil, content: "cached content")
 
@@ -31,7 +28,6 @@ class TestCache < Minitest::Test
     assert_equal "cached content", entry.content_of(0)
   end
 
-  #: () -> bool
   def test_store_fetch
     store = Store.new
     key = "test cache key"

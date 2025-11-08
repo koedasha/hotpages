@@ -2,7 +2,6 @@ require "test_helper"
 require "digest"
 
 class TestGeneration < Minitest::Test
-  #: () -> Integer
   def setup
     pid = fork do
       Hotpages.extensions += [
@@ -16,7 +15,6 @@ class TestGeneration < Minitest::Test
     Process.wait(pid)
   end
 
-  #: () -> Array[untyped]
   def test_site_generation
     expected_dist = File.join(__dir__, "../../dist/expected")
     actual_dist = Hotpages.site.dist_path.to_s
